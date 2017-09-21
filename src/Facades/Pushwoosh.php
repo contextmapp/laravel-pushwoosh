@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
- namespace Contextmapp\Pushwoosh\Facades;
+namespace Contextmapp\Pushwoosh\Facades;
 
 use Gomoob\Pushwoosh\Client\Pushwoosh as PushwooshClient;
 use Illuminate\Support\Facades\Facade;

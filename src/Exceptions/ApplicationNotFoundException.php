@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
- namespace Contextmapp\Pushwoosh\Exceptions;
+namespace Contextmapp\Pushwoosh\Exceptions;
 
 use Exception;
 

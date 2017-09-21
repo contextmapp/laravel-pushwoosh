@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
- namespace Contextmapp\Pushwoosh;
+namespace Contextmapp\Pushwoosh;
 
 use Gomoob\Pushwoosh\Client\Pushwoosh;
 use Illuminate\Support\ServiceProvider;
@@ -21,13 +21,13 @@ class PushwooshServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/pushwoosh.php' => config_path('pushwoosh.php'),
+            __DIR__.'/../config/pushwoosh.php' => config_path('pushwoosh.php'),
         ]);
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/pushwoosh.php', 'pushwoosh');
+        $this->mergeConfigFrom(__DIR__.'/../config/pushwoosh.php', 'pushwoosh');
 
         $this->app->singleton(PushwooshManager::class, function ($app) {
             return new PushwooshManager($app['config']['pushwoosh'], $app[PushwooshFactory::class]);
@@ -43,7 +43,7 @@ class PushwooshServiceProvider extends ServiceProvider
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function provides()
     {

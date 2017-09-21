@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
- namespace Contextmapp\Pushwoosh;
+namespace Contextmapp\Pushwoosh;
 
 use Contextmapp\Pushwoosh\Exceptions\ApplicationNotFoundException;
 use Contextmapp\Pushwoosh\Exceptions\InvalidConfigurationException;
@@ -43,7 +43,7 @@ class PushwooshManager
         if (empty($this->config['application'])) {
             throw new InvalidConfigurationException('The default application is not set.');
         }
-        
+
         return $this->config['application'];
     }
 
