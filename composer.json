@@ -1,0 +1,33 @@
+{
+    "name": "contextmapp/laravel-pushwoosh",
+    "description": "Laravel package for integrating Pushwoosh",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["pushwoosh", "laravel"],
+    "authors": [
+        {
+            "name": "Raymond Jelierse",
+            "email": "raymond@contextmapp.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
+        "gomoob/php-pushwoosh": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contextmapp\\Pushwoosh\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Contextmapp\\Pushwoosh\\PushwooshServiceProvider"
+            ],
+            "aliases": {
+                "Pushwoosh": "Contextmapp\\Pushwoosh\\Facades\\Pushwoosh"
+            }
+        }
+    }
+}
