@@ -16,7 +16,7 @@ return [
     |-------------------------------------------------------------------------
     | Which application should be targeted by default?
     */
-    'application' => 'default',
+    'application' => env('PUSHWOOSH_APPLICATION', 'default'),
 
     /*
     |-------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     | You can find your token at https://go.pushwoosh.com/v2/api_access
     */
-    'api_token' => null,
+    'api_token' => env('PUSHWOOSH_API_TOKEN', 'abcdefghijklmnopqrstuvwxyz'),
 
     /*
     |-------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return [
             |
             | You can find your token at https://go.pushwoosh.com/v2/applications
             */
-            'application_id' => null,
+            'application_id' => env('PUSHWOOSH_APP_ID', '12345-ABCDE'),
         ],
     ],
 ];
