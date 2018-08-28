@@ -38,7 +38,7 @@ class PushwooshServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(Pushwoosh::class, function ($app) {
-            return $app[PushwooshManager::class]->connection();
+            return $app[PushwooshManager::class]->application();
         });
     }
 
