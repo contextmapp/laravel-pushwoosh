@@ -11,8 +11,9 @@
 
 namespace Contextmapp\Pushwoosh\Exceptions;
 
-use Exception;
-
-class InvalidConfigurationException extends Exception
+/**
+ * InvalidConfigurationException is thrown when the configuration object passed to the PushwooshManager is invalid.
+ */
+class InvalidConfigurationException extends \DomainException
 {
 }

@@ -14,10 +14,18 @@ namespace Contextmapp\Pushwoosh;
 use Gomoob\Pushwoosh\Client\Pushwoosh;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * ServiceProvider for Laravel applications.
+ */
 class PushwooshServiceProvider extends ServiceProvider
 {
     protected $defer = true;
 
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
     public function boot()
     {
         $this->publishes([
@@ -25,6 +33,11 @@ class PushwooshServiceProvider extends ServiceProvider
         ]);
     }
 
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/pushwoosh.php', 'pushwoosh');

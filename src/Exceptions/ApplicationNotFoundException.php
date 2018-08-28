@@ -11,9 +11,10 @@
 
 namespace Contextmapp\Pushwoosh\Exceptions;
 
-use Exception;
-
-class ApplicationNotFoundException extends Exception
+/**
+ * ApplicationNotFoundException is thrown when an application is requested that is not configured.
+ */
+class ApplicationNotFoundException extends \UnexpectedValueException
 {
     public function __construct(string $name)
     {

@@ -14,8 +14,16 @@ namespace Contextmapp\Pushwoosh\Facades;
 use Gomoob\Pushwoosh\Client\Pushwoosh as PushwooshClient;
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Facade for the default Pushwoosh application.
+ *
+ * @method static PushwooshClient application()
+ */
 class Pushwoosh extends Facade
 {
+    /**
+     * {@inheritdoc}
+     */
     protected static function getFacadeAccessor()
     {
         return PushwooshClient::class;
