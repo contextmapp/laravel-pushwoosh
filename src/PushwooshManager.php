@@ -59,7 +59,7 @@ class PushwooshManager
             throw new InvalidConfigurationException("The application ID is not set for application '$name'.");
         }
 
-        return $this->factory->make($config['application_id'], $this->config['api_token']);
+        return $this->factory->create($config['application_id'], $this->config['api_token']);
     }
 
     private function getApplicationConfiguration(string $name): array
