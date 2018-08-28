@@ -15,9 +15,17 @@
         "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*",
         "gomoob/php-pushwoosh": "^1.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
     "autoload": {
         "psr-4": {
             "Contextmapp\\Pushwoosh\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Contextmapp\\Pushwoosh\\Tests\\": "tests/"
         }
     },
     "extra": {
