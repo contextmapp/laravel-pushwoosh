@@ -19,6 +19,6 @@ class PushwooshFactory
     {
         return Pushwoosh::create()
             ->setApplication($application_id)
-            ->setAUth($api_token);
+            ->setAuth($api_token);
     }
 }
