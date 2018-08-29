@@ -26,7 +26,7 @@ return [
     |
     | You can find your token at https://go.pushwoosh.com/v2/api_access
     */
-    'api_token' => env('PUSHWOOSH_API_TOKEN', 'abcdefghijklmnopqrstuvwxyz'),
+    'api_token' => env('PUSHWOOSH_API_TOKEN'),
 
     /*
     |-------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return [
             |
             | You can find your token at https://go.pushwoosh.com/v2/applications
             */
-            'application_id' => env('PUSHWOOSH_APP_ID', '12345-ABCDE'),
+            'application_id' => env('PUSHWOOSH_APP_ID'),
         ],
     ],
 ];
