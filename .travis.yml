@@ -13,9 +13,10 @@ cache:
 
 install:
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest
+  - mkdir -p $HOME/.coveralls/logs
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --coverage-clover=$HOME/.coveralls/logs/clover.xml
 
 after_success:
-  - travis_retry vendor/bin/php-coveralls
+  - travis_retry vendor/bin/php-coveralls -x $HOME/.coveralls/logs/clover.xml -o $HOME/.coveralls/logs/upload.json
