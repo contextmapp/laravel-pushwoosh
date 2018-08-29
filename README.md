@@ -2,6 +2,7 @@
 
 > A simple wrapper around Gomoob's [php-pushwoosh](https://github.com/gomoob/php-pushwoosh/) package for integration with the Laravel framework.
 
+[![Build Status](https://travis-ci.org/contextmapp/laravel-pushwoosh.svg?branch=master)](https://travis-ci.org/contextmapp/laravel-pushwoosh)
 [![Version](https://img.shields.io/packagist/v/contextmapp/laravel-pushwoosh.svg)](https://packagist.org/packages/contextmapp/laravel-pushwoosh)
 [![License](https://img.shields.io/packagist/l/contextmapp/laravel-pushwoosh.svg)](https://packagist.org/packages/contextmapp/laravel-pushwoosh)
 
