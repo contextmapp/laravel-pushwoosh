@@ -11,6 +11,11 @@ cache:
   directories:
   - $HOME/.composer/cache/files
 
-install: composer install --prefer-dist --no-interaction --no-progress --no-suggest
+install:
+  - composer install --prefer-dist --no-interaction --no-progress --no-suggest
 
-script: vendor/bin/phpunit --coverage-text
+script:
+  - vendor/bin/phpunit
+
+after_success:
+  - travis_retry vendor/bin/php-coveralls
