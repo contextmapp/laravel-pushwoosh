@@ -43,3 +43,15 @@ This command copies the configuration file to `config/pushwoosh.php`.
 
 Make sure you set up the `api_token` and `application_id` of the default 
 application.
+
+## Usage
+
+You can use the wrapper to interact with the Pushwoosh SDK directly, or, you could add support for Pushwoosh to your
+[Laravel notifications](https://laravel.com/docs/notifications).
+
+### Laravel Notifications
+
+If you are using Laravel's notification system, you can add `'pushwoosh'` to the `via()` response of a notification.
+The channel name is also available as a class constant on the `Contextmapp\Pushwoosh\PushwooshChannel` class.
+The notification class is expected to implement the `Contextmapp\Pushwoosh\Contracts\PushwooshNotification` contract.
+Your notifiable classes should implement the `Contextmapp\Pushwoosh\Contracts\PushwooshNotifiable` contract.

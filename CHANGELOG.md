@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Coverage information
+- Support for Laravel's notification channels
 ### Fixed
 - Require correct configuration of package by removing placeholder data
 
