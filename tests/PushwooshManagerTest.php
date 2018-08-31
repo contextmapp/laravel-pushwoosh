@@ -45,6 +45,28 @@ class PushwooshManagerTest extends TestCase
         $this->assertEquals($application, $manager->application());
     }
 
+    public function testCall()
+    {
+        $config = [
+            'application' => static::APP,
+            'api_token' => static::API_TOKEN,
+            'applications' => [
+                static::APP => [
+                    'application_id' => static::APP_ID,
+                ],
+            ],
+        ];
+
+        $application = $this->createMock(Pushwoosh::class);
+        $application->expects($this->once())->method('getAuth')->willReturn(static::API_TOKEN);
+
+        $factory = $this->createMock(PushwooshFactory::class);
+        $factory->expects($this->once())->method('create')->with(static::APP_ID, static::API_TOKEN)->willReturn($application);
+
+        $manager = new PushwooshManager($config, $factory);
+        $this->assertEquals(static::API_TOKEN, $manager->getAuth());
+    }
+
     public function testUnknownApplication()
     {
         $config = [
