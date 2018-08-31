@@ -12,6 +12,8 @@
 namespace Contextmapp\Pushwoosh;
 
 use Gomoob\Pushwoosh\Client\Pushwoosh;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -24,13 +26,19 @@ class PushwooshServiceProvider extends ServiceProvider
     /**
      * Perform post-registration booting of services.
      *
+     * @param \Illuminate\Notifications\ChannelManager
+     *
      * @return void
      */
-    public function boot()
+    public function boot(ChannelManager $manager)
     {
         $this->publishes([
             __DIR__.'/../config/pushwoosh.php' => config_path('pushwoosh.php'),
         ]);
+
+        $manager->extend(PushwooshChannel::NAME, function (Application $app) {
+            return $app->make(PushwooshChannel::class);
+        });
     }
 
     /**
@@ -42,14 +50,11 @@ class PushwooshServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/pushwoosh.php', 'pushwoosh');
 
-        $this->app->singleton(PushwooshManager::class, function ($app) {
+        $this->app->singleton(PushwooshFactory::class);
+        $this->app->singleton(PushwooshChannel::class);
+        $this->app->singleton(PushwooshManager::class, function (Application $app) {
             return new PushwooshManager($app['config']['pushwoosh'], $app[PushwooshFactory::class]);
         });
-
-        $this->app->singleton(PushwooshFactory::class, function () {
-            return new PushwooshFactory();
-        });
-
         $this->app->singleton(Pushwoosh::class, function ($app) {
             return $app[PushwooshManager::class]->application();
         });
@@ -61,8 +66,9 @@ class PushwooshServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            PushwooshManager::class,
+            PushwooshChannel::class,
             PushwooshFactory::class,
+            PushwooshManager::class,
             Pushwoosh::class,
         ];
     }
