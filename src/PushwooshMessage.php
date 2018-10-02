@@ -68,7 +68,7 @@ class PushwooshMessage
         return $this;
     }
 
-    public function application(string $application)
+    public function application(string $application = null)
     {
         $this->application = $application;
 
